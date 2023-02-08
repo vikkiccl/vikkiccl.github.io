@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikki's Portfolio - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+    <script src="../js/cinemas.js "></script>
+    <script src="../js/movies.js"></script>
+    <script>
+        let movies = getMovies();
+    </script>
+    <style>
+        video{
+            width: 99%;
+            display: block;
+            margin: 0px 10px;
+            z-index: 1;
+        }
+        #current{
+            pointer-events: none;
+        }
+        .movie-thumbnail{
+            cursor: pointer;
+        }
+        .movie-thumbnail >img:hover{
+            box-shadow: 5px 5px rgb(211, 211, 211);
+        }
+        .movie-thumbnail > img{
+            width: 100%;
+            height: 150px;
+            transition: box-shadow 0.25s linear;
+        }
+        .movie-details{
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: 35% 21% 21% 21%;
+            padding: 0px 20px 20px 20px;
+        }
+        .movie-details > div{
+            line-height: 10px;
+            vertical-align: center;
+        }
+        .nowshowing{
+            display: grid;
+            grid-template-rows: 10% 25% 25% 25%;
+            border: 1px black solid;
+            padding: 0px 0px 20px 0px;
+            transition: background-color 0.25s linear;
+            background-color: rgb(224, 247, 247);
+        }
+        .upcoming{
+            display: grid;
+            grid-template-rows: 10% 25% 25% 25%;
+            border: 1px black solid;
+            padding: 0px 0px 20px 0px;
+            transition: background-color 0.25s linear;
+            background-color: rgb(224, 247, 247);
+        }
+        .upcoming-nowshowing{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin: 20px 10px;
+            border: 1px black solid;
+        }
+        .upcoming:hover{
+            background-color: rgb(250, 255, 255);
+        }
+        .nowshowing:hover{
+            background-color: rgb(250, 255, 255);
+        }
+        .movie{
+            display: grid;
+            grid-template-columns: 30% 70%;
+            padding: 20px;
+        }
+        .subheading{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        span{
+            font-weight: bold;
+        }
+        .movie-name{
+            font-weight: 700;
+            font-size: 20px;
+            padding-top: 10px;
+        }
+        footer{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-nav">
+        <header>
+            <div class="head">
+                <img src="../images/logo/filmreel.png" alt="logo: filmreel">
+                <h1>Vikki's Cinema</h1>
+            </div>
+        </header>
+        <nav>
+            <div class="nav">
+                <div><a id="current" href="index.html">HOME</a></div>
+                <div><a href="nowshowing.html">NOW SHOWING</a></div>
+                <div><a href="ticket.html">TICKET</a></div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+    <div id="auto">
+        <video controls autoplay id="myVideo">
+            <source>
+        </video>
+    </div>
+    <div class="upcoming-nowshowing">
+        <div class="nowshowing">
+            <div><p class="subheading">Now Showing</p></div>
+            <dl class="nowshowing-list">  
+            </dl>
+        </div>
+        <div class="upcoming">
+            <p class="subheading">Up Coming</p>    
+            <dl class="upcoming-list">
+            </dl>
+        </div>
+    </div>
+    </div>
+    <script>
+        function getMovieName(movieArray, id) {
+            for (let i=0; i<movieArray.length; i++) {
+                if (movieArray[i].id == id) 
+                return movieArray[i].name;
+            }
+            return undefined;
+        }
+
+        function append_to_div(div_name, data){
+            document.getElementsByClassName(div_name)[0].innerHTML += data;
+        }
+        for (let j=0; j<movies.length; j++){
+            var moviethumbnail = movies[j].thumbnail;
+            var moviename = movies[j].name;
+            var moviecast = movies[j].cast;
+            var moviedirector = movies[j].director;
+            var movieduration = movies[j].duration;
+
+            if(movies[j].type == "now"){
+                append_to_div('nowshowing-list', 
+                "<dt>" + "</dt>" + "<dd class='movie'>" + "<div class='movie-thumbnail'>" + "<img onclick='playVideo(this)' src='" + moviethumbnail + "' alt= 'Movie: " + moviename + "'>" + "</div>" + 
+                "<div class='movie-details'>" + 
+                "<div class='movie-name'>" + moviename + "</div>" +  
+                "<div>" + "<span>" + "Cast: " + "</span>" + moviecast + "</div>" + 
+                "<div>" + "<span>" + "Director: " + "</span>" + moviedirector + "</div>" + 
+                "<div>" + "<span>" + "Duration: " + "</span>" + movieduration + " mins" + "</div>" +  
+                "</div>" + "</dd>" );
+            }
+
+            if(movies[j].type == "upcoming"){
+                append_to_div('upcoming-list', 
+                "<dt>" + "</dt>" + "<dd class='movie'>" + "<div class='movie-thumbnail'>" + "<img onclick='playVideo(this)' src='" + moviethumbnail + "' alt= 'Movie: " + moviename + "' class='movieThumbnail'>" + "</div>" + 
+                "<div class='movie-details'>" + 
+                "<div class='movie-name'>" + moviename + "</div>" +  
+                "<div>" + "<span>" + "Cast: " + "</span>" + moviecast + "</div>" + 
+                "<div>" + "<span>" + "Director: " + "</span>" + moviedirector + "</div>" + 
+                "<div>" + "<span>" + "Duration: " + "</span>" + movieduration + " mins" + "</div>" +  
+                "</div>" + "</dd>" );
+            }
+        }
+
+        var current = 0;
+        var playVid = document.getElementById("myVideo");
+        playVid.src = movies[current].src;
+        playVid.addEventListener("ended", function(){setTimeout(nextVideo, 2000)});
+
+        function nextVideo(){
+            current += 1;
+            if(current == movies.length){
+                current = 0;
+                playVid.src = movies[current].src;
+            }
+            playVid.src = movies[current].src; 
+        }
+
+        function playVideo(img){
+            var att = img.getAttribute("src");
+            for(var m=0; m<movies.length; m++){
+                if(att == movies[m].thumbnail){
+                    current = m;
+                    playVid.src = movies[current].src;
+                }
+            } 
+        }
+    </script>
+    <footer>
+        <div class="footer">
+            <p>Copyright of resources belong to corresponding copyright owners
+                <br>- fair use for education purpose | <a href="index.html">Home</a> | <a href="design.html">Design</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+

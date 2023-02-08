@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikki's Cinema - Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <style>
+        .heading{
+            font-size: 18px;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        #CW2 > img{
+            display: block;
+            transition: box-shadow 0.25s linear;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        #CW2 > img:hover{
+            box-shadow: 5px 5px rgb(211, 211, 211);
+        }
+        table, th, td{
+            border: 2px solid;
+            border-collapse: collapse;
+        }
+        table{
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            background-color: rgba(255, 224, 0, 0.3);
+        }
+        th, td{
+            padding: 10px;
+        }
+        th{
+            text-align: left;
+        }
+        caption{
+            font-weight: 600;
+        }
+        .amount{
+            text-align: center;
+        }
+        #CW1, #CW2, #CW3{
+            margin: 10px;
+        }
+        #CW2{
+            margin-top: 50px;
+        }
+        #style:hover, #groups:hover, #home:hover, #nowshowing:hover, #ticket:hover, #print:hover, #design:hover{
+            background-color: rgb(240, 255, 240);
+            transition: background-color 0.15s linear;
+        }
+        #CW2 > p > a{
+            color: blue;
+        }
+        #CW2 > p > a:hover{
+            color: rgb(0, 140, 255);
+        }
+        .content{
+            background-color: rgba(70, 108, 232, 0.1);
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-nav">
+        <header>
+            <div class="head">
+                <img src="../images/logo/filmreel.png" alt="logo: filmreel">
+                <h1>Vikki's Cinema</h1>
+            </div>
+        </header>
+        <nav>
+            <div class="nav">
+                <div><a href="index.html">HOME</a></div>
+                <div><a href="nowshowing.html">NOW SHOWING</a></div>
+                <div><a href="ticket.html">TICKET</a></div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <div id="CW1">
+            <p class="heading">CW1:</p>
+            <p>Index page: The now showing and up coming movies are ordered in an ordered list, as I think that it is clearer for users to distinguish one movie from another with numbers next to the movie.</p>
+            <p>Now showing page: A drop-down list is used to show the cinema and timeslot and hide other possible options in a clear design. The thumbnail, name of the movie and timeslots are wrapped in a form due to the information of these three elements will change at the same time if another movie is selected. The address and image of the map are located in the same paragraph with an id so both of them can be called with the id.</p>
+            <p>Ticket page: The seating plan of the cinema is made by a table, with a neat look and suitable for changing the elements to be clickable in later stage.</p>
+            <p>Print page: All information of a movie are contained in a form, with each item as a label.</p>
+        </div>
+        <div id="CW2">
+            <p class="heading">CW2:</p>
+            <img src="../images/others/cw2layout.png" alt="others: layout">
+            <table>
+                <caption>Style sheets used and their purposes</caption>
+                <tr><td></td><th>Amount</th><th>Purpose</th></tr>
+                <tr id="style"><th>Style Sheet</th><td class="amount">1</td><td>For the header, navigation bar and footer that are located in every page.</td></tr>
+                <tr id="groups"><th>Groups of Styles</th><td class="amount">5</td><td>For the content inside each page, where each page have their own groups of styles.</td></tr>
+            </table>
+            <table>
+                <caption>CSS3 features used</caption>
+                <tr><td></td><th>Style Sheet</th><th>Line Numbers</th><th>Features</th></tr>
+                <tr id="home"><th>Home</th><td>Embedded into index.html</td><td>27, 32, 48, 55</td><td>Box Shadow, Transition</td></tr>
+                <tr id="nowshowing"><th>Now Showing</th><td>Embedded into nowshowing.html</td><td>61, 62</td><td>Border Radius, Transition</td></tr>
+                <tr id="ticket"><th>Ticket</th><td>Embedded into ticket.html</td><td>33, 52, 53</td><td>Border Radius, Transition</td></tr>
+                <tr id="print"><th>Print</th><td>Embedded into print.html</td><td>20, 23, 24</td><td>Scale Up, Box Shadow, Transition</td></tr>
+                <tr id="design"><th>Design</th><td>Embedded into design.html</td><td>21, 27, 60</td><td>Box Shadow, Transition</td></tr>
+            </table>
+            <p>Acknowledgement: <a href="https://www.w3schools.com/css/default.asp" target=blank>https://www.w3schools.com/css/default.asp</a> for its examples</p>
+        </div>
+        <div id="CW3">
+            <p class="heading">CW3:</p>
+            <p>Where did I use event handlers:</p><br>
+            <p>Setup in Javascript: </p>
+            <p>index.html line 181 (for detecting when does the video finishes playing)</p><br>
+            <p>Setup in HTML: </p> 
+            <p>index.html lines 157, 168 (used onclick, to detect which thumbnail is clicked, so as to change the current playing video to the clicked one)</p>
+            <p>nowshowing.html line 173 (used onchange, to detect which option is chosen and show the corresponding movies showing in that cinema)</p>
+            <p>ticket.html lines 173, 174, 175 (used onclick, to detect which seat is pressed, then do operations like changing the background color of the seat and set the pointer event to none)</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <p>Copyright of resources belong to corresponding copyright owners
+                <br>- fair use for education purpose | <a href="../page/index.html">Home</a> | <a href="../page/design.html">Design</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

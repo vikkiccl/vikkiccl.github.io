@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikki's Cinema - Ticket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/cinemas.js"></script>
+    <script src="../js/movies.js"></script>
+    <script>
+        let cinemas=getCinemas();
+        let movies=getMovies();
+        function init(){
+            function getMovieName(movieArray, id) {
+                for (let m=0; m<movieArray.length; m++) {
+                    if (movieArray[m].id == id){
+                    return movieArray[m].name;
+                    }
+                }
+            }
+
+            function getMovieThumbnail(movieArray, id) {
+                for (let m=0; m<movieArray.length; m++) {
+                    if (movieArray[m].id == id) {
+                    return movieArray[m].thumbnail;
+                    }
+                }
+            }
+
+            var link = window.location.href;
+            
+            var linkSplit = link.split("?").pop().split("&");
+
+            var movieSplit = linkSplit[0].split("=").pop();
+            var indexSplit = linkSplit[1].split("=").pop(); 
+
+            for (let i=0; i<cinemas.length; i++) {
+                var branchName = cinemas[i].branchName;
+                
+                for (let j=0; j<cinemas[i].movies.length; j++) {
+                    var movieId = cinemas[i].movies[j].id;
+                    var movieName = getMovieName(movies, movieId);
+                    var movieNameBranch = branchName + movieName;
+                    var movieThumbnail = getMovieThumbnail(movies, movieId);
+
+                    for (let k=0; k<cinemas[i].movies[j].shows.length; k++) {
+                        var movieIndex = cinemas[i].movies[j].shows[k].index;
+                        if (movieIndex == indexSplit){
+                            var movieDateTime = cinemas[i].movies[j].shows[k].datetime;
+                            var movieHouse = cinemas[i].movies[j].shows[k].house;
+                            var showBranch = branchName;
+                        }
+                    }
+                } 
+            }
+            //info needed: movieSplit, showBranch, movieDateTime, movieHouse
+
+            function append_to_div(div_name, data){
+                document.getElementById(div_name).innerHTML += data;
+            }
+
+            append_to_div("movie-name", movieSplit);
+            append_to_div("cinema-name", showBranch);
+            append_to_div("date-time", movieDateTime);
+            append_to_div("house", movieHouse);
+
+            document.querySelector('input[name="cinemaName"]').value = showBranch;
+            document.querySelector('input[name="movieName"]').value = movieSplit;
+            document.querySelector('input[name="movieDateTime"]').value = movieDateTime;
+            document.querySelector('input[name="movieHouse"]').value = movieHouse;
+        }
+        window.onload = init;
+    </script>
+    <style>
+        #current{
+            pointer-events: none;
+        }
+        .ticket-content{
+            margin-top: 300px;
+        }
+        table, caption, td{
+            border: solid;
+            border-collapse: collapse;
+        }
+        table{
+            width: 98%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        tr{
+            height: 50px;
+        }
+        .A, .B, .C{
+            transition: background-color 0.15s linear;
+        }
+        .A:hover{
+            background-color: rgb(217, 255, 180);
+        }
+        .B:hover{
+            background-color: rgb(217, 255, 180);
+        }
+        .C:hover{
+            background-color: rgb(217, 255, 180);
+        }
+        h3{
+            text-align: center;
+        }
+        #floorplan{
+            text-align: center;
+        }
+        input[type="submit"]{
+            padding: 10px;
+            margin-top: 10px;
+            background-color: rgb(81, 116, 140);
+            color: white;
+            display: block;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.15s linear;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(115, 172, 191);
+        }
+        #booked{
+            margin-left: 10px;
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 18px;
+        }
+        #booked > input{
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 18px;
+        }
+        #booked > p{
+            font-weight: 600;
+        }
+        .content{
+            background-color: rgb(212, 230, 255);
+            padding: 10px 0px 20px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-nav">
+        <header>
+            <div class="head">
+                <img src="../images/logo/filmreel.png" alt="logo: filmreel">
+                <h1>Vikki's Cinema</h1>
+            </div>
+        </header>
+        <nav>
+            <div class="nav">
+                <div><a href="index.html">HOME</a></div>
+                <div><a href="nowshowing.html">NOW SHOWING</a></div>
+                <div><a id="current" href="ticket.html">TICKET</a></div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <div id="info">
+            <h3 id="movie-name">Movie: </h3>
+            <h3 id="cinema-name">Cinema: </h3>
+            <h3 id="date-time"></h3>                
+            <h3 id="house">House </h3>
+        </div>
+        <div id="floorplan">
+            <table>
+                <caption>SCREEN</caption>
+                <tr><td>A</td><td class="A" onclick="changeSeatColor(this, 'A1 ')">1</td><td class="A" onclick="changeSeatColor(this, 'A2 ')">2</td><td class="A" onclick="changeSeatColor(this, 'A3 ')">3</td><td class="A" onclick="changeSeatColor(this, 'A4 ')">4</td><td>A</td></tr>
+                <tr><td>B</td><td class="B" onclick="changeSeatColor(this, 'B1 ')">1</td><td class="B" onclick="changeSeatColor(this, 'B2 ')">2</td><td class="B" onclick="changeSeatColor(this, 'B3 ')">3</td><td class="B" onclick="changeSeatColor(this, 'B4 ')">4</td><td>B</td></tr>
+                <tr><td>C</td><td class="C" onclick="changeSeatColor(this, 'C1 ')">1</td><td class="C" onclick="changeSeatColor(this, 'C2 ')">2</td><td class="C" onclick="changeSeatColor(this, 'C3 ')">3</td><td class="C" onclick="changeSeatColor(this, 'C4 ')">4</td><td>C</td></tr>              
+            </table>
+        </div>
+        <form id="booked" action="print.html">
+            <p>Seat booked:</p>
+            <input type="hidden" name="cinemaName">
+            <input type="hidden" name="movieName">
+            <input type="hidden" name="movieDateTime">
+            <input type="hidden" name="movieHouse">
+            <input type="text" name="seat">         
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+    <script>
+        function changeSeatColor(i, seat){
+            i.style.backgroundColor = "#d9ffb4";
+            var selectElement = document.querySelector('input[name="seat"]');
+            selectElement.value += seat;
+            i.style.pointerEvents = "none";
+        }
+    </script>
+    <footer>
+        <div class="footer">
+            <p>Copyright of resources belong to corresponding copyright owners
+                <br>- fair use for education purpose | <a href="index.html">Home</a> | <a href="design.html">Design</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

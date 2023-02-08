@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikki's Cinema - Print</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/cinemas.js"></script>
+    <script src="../js/movies.js"></script>
+    <script>
+        let cinemas=getCinemas();
+        let movies=getMovies();
+        function init(){
+            var link = window.location.href;
+            
+            var linkSplit = link.split("?").pop().split("&");
+
+            var cinemaSplit = linkSplit[0].split("=").pop().split("+");
+            var movieSplit = linkSplit[1].split("=").pop(); //movie name
+            var movieDTSplit = linkSplit[2].split("=").pop().split("%2C");
+            var movieHouseSplit = linkSplit[3].split("=").pop(); //movie house
+            var seatSplit = linkSplit[4].split("=").pop().split("+"); //array of seats
+            seatSplit.pop();
+
+            var cinema = cinemaSplit.join(" "); //cinema name
+
+            var DT1 = movieDTSplit.join(",");
+            var DT2 = DT1.split("+"); //9,Nov,,Mon,-,2%3A00pm
+            var DT3 = DT2.pop().split("%3A");
+            var DT4 = DT3.join(":");
+            var movieDT = DT2[0] + " " + DT2[1] + " " + DT2[2] + " " + DT2[3] + " " + DT4; //9 Nov, Mon - 2:00pm //Date Time
+
+            function append_to_div(div_name, data){
+                document.getElementById(div_name).innerHTML += data;
+            }
+
+            for(let i=0; i<seatSplit.length; i++){
+                append_to_div("ticket", "<div class='ticket-info'>" + "<form>" + 
+                "<label>Cinema: </label>" + "<input type='text' name='cinema' value='" + cinema + "'>" + "<br>" +
+                "<label>Movie: </label>" + "<input type='text' name='movie' value='" + movieSplit + "'>" + "<br>" +
+                "<label>Date Time: </label>" + "<input type='text' name='datetime' value='" + movieDT + "'>" + "<br>" +
+                "<label>House No.: </label>" + "<input type='text' name='house' value='" + movieHouseSplit + "'>" + "<br>" +
+                "<label>Seat: </label>" + "<input type='text' name='seat' value='" + seatSplit[i] + "'>" +
+                "</form>" + "</div>");
+            }
+        }
+        window.onload = init;
+    </script>
+    <style>
+        .ticket-info{
+            border: 1px black solid;
+            padding: 10px;
+            margin: 20px 10px;
+            background-color: rgb(250, 255, 255);
+            width: 500px;
+            transition: box-shadow 0.25s linear;
+        }
+        .ticket-info:hover{
+            transform: scale(1.05, 1.05);
+            box-shadow: 5px 5px rgb(211, 211, 211);
+        }
+  
+        form > input{
+            width: 80%;
+            background: transparent;
+            border: none;
+            font-size: 14px;
+        }
+        @media print{
+            .head-nav, footer{
+                display: none;
+            }
+            .ticket-info{
+                page-break-after: always;
+            }
+            .content{
+                margin:0px 10px 0px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="head-nav">
+        <header>
+            <div class="head">
+                <img src="../images/logo/filmreel.png" alt="logo: filmreel">
+                <h1>Vikki's Cinema</h1>
+            </div>
+        </header>
+        <nav>
+            <div class="nav">
+                <div><a href="index.html">HOME</a></div>
+                <div><a href="nowshowing.html">NOW SHOWING</a></div>
+                <div><a href="ticket.html">TICKET</a></div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <div id="ticket">
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <p>Copyright of resources belong to corresponding copyright owners
+                <br>- fair use for education purpose | <a href="index.html">Home</a> | <a href="design.html">Design</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
