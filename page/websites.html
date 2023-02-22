@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikki's Portfolio - Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/websites.js"></script>
+    <script>
+        let websites = getWebsites();
+    </script>
+    <style>
+        /* .heading{
+            font-size: 18px;
+            text-decoration: underline;
+            font-weight: 600;
+        } */
+        /* #CW2 > img{
+            display: block;
+            transition: box-shadow 0.25s linear;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        #CW2 > img:hover{
+            box-shadow: 5px 5px rgb(211, 211, 211);
+        }
+        table, th, td{
+            border: 2px solid;
+            border-collapse: collapse;
+        }
+        table{
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            background-color: rgba(255, 224, 0, 0.3);
+        }
+        th, td{
+            padding: 10px;
+        }
+        th{
+            text-align: left;
+        }
+        caption{
+            font-weight: 600;
+        }
+        .amount{
+            text-align: center;
+        }
+        #CW1, #CW2, #CW3{
+            margin: 10px;
+        }
+        #CW2{
+            margin-top: 50px;
+        }
+        #style:hover, #groups:hover, #home:hover, #nowshowing:hover, #ticket:hover, #print:hover, #design:hover{
+            background-color: rgb(240, 255, 240);
+            transition: background-color 0.15s linear;
+        }
+        #CW2 > p > a{
+            color: blue;
+        }
+        #CW2 > p > a:hover{
+            color: rgb(0, 140, 255);
+        } */
+        #current{
+            pointer-events: none;
+            text-decoration: underline;
+        }
+        .content{
+            margin: 200px 50px 0px 50px;
+            display: grid;
+            grid-template-rows: auto;
+        }
+        #general-box{
+            margin: 0px 3%;
+        }
+        .box{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin: 0px 0px 4% 0px;
+            background-color: #FFECF7;
+        }
+        .semibold-text{
+            font-weight: 600;
+        }
+        .subheading{
+            text-align: center;
+        }
+        .subheading > p, .details > p{
+            font-size: 20px;
+        }
+        .left-box{
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            /* background-color: rgb(255, 186, 83); */
+        }
+        .left-box > img{
+            width: 80%;
+            padding: 4% 0px 2% 0px;
+        }
+        .left-box > p{
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            align-self: center;
+        }
+        .prev-next{
+            padding: 0px 0px 4% 0px;
+        }
+        .prev-next > a{
+            text-decoration: none;
+        }
+        .details{
+            /* background-color: white; */
+            margin: 4%;
+        }
+        .pdf{
+            margin: 0px 0px 4% 4%;
+        }
+        #email, #location{
+            display: grid;
+            grid-template-columns: 40px auto;
+            align-items: center;
+        }
+        #email > img, #location > img{
+            width: 20px;
+        }
+        .prev:hover{
+            cursor: pointer;
+        }
+        .next:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-nav">
+        <header>
+            <div class="head">
+                <img src="../images/logo/green.svg" alt="logo: filmreel">
+                <h1>Vikki's Portfolio</h1>
+            </div>
+        </header>
+        <nav>
+            <div class="nav">
+                <div><a href="index.html">HOME</a></div>
+                <div><a href="uxwork.html">UX WORK</a></div>
+                <div><a href="uiwork.html">UI WORK</a></div>
+                <div><a href="apps.html">APPS</a></div>
+                <div><a id="current" href="websites.html">WEBSITES</a></div>
+                <div><a href="others.html">OTHERS</a></div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <!-- <div id="CW1">
+            <p class="heading">CW1:</p>
+            <p>Index page: The now showing and up coming movies are ordered in an ordered list, as I think that it is clearer for users to distinguish one movie from another with numbers next to the movie.</p>
+            <p>Now showing page: A drop-down list is used to show the cinema and timeslot and hide other possible options in a clear design. The thumbnail, name of the movie and timeslots are wrapped in a form due to the information of these three elements will change at the same time if another movie is selected. The address and image of the map are located in the same paragraph with an id so both of them can be called with the id.</p>
+            <p>Ticket page: The seating plan of the cinema is made by a table, with a neat look and suitable for changing the elements to be clickable in later stage.</p>
+            <p>Print page: All information of a movie are contained in a form, with each item as a label.</p>
+        </div>
+        <div id="CW2">
+            <p class="heading">CW2:</p>
+            <img src="../images/others/cw2layout.png" alt="others: layout">
+            <table>
+                <caption>Style sheets used and their purposes</caption>
+                <tr><td></td><th>Amount</th><th>Purpose</th></tr>
+                <tr id="style"><th>Style Sheet</th><td class="amount">1</td><td>For the header, navigation bar and footer that are located in every page.</td></tr>
+                <tr id="groups"><th>Groups of Styles</th><td class="amount">5</td><td>For the content inside each page, where each page have their own groups of styles.</td></tr>
+            </table>
+            <table>
+                <caption>CSS3 features used</caption>
+                <tr><td></td><th>Style Sheet</th><th>Line Numbers</th><th>Features</th></tr>
+                <tr id="home"><th>Home</th><td>Embedded into index.html</td><td>27, 32, 48, 55</td><td>Box Shadow, Transition</td></tr>
+                <tr id="nowshowing"><th>Now Showing</th><td>Embedded into nowshowing.html</td><td>61, 62</td><td>Border Radius, Transition</td></tr>
+                <tr id="ticket"><th>Ticket</th><td>Embedded into ticket.html</td><td>33, 52, 53</td><td>Border Radius, Transition</td></tr>
+                <tr id="print"><th>Print</th><td>Embedded into print.html</td><td>20, 23, 24</td><td>Scale Up, Box Shadow, Transition</td></tr>
+                <tr id="design"><th>Design</th><td>Embedded into design.html</td><td>21, 27, 60</td><td>Box Shadow, Transition</td></tr>
+            </table>
+            <p>Acknowledgement: <a href="https://www.w3schools.com/css/default.asp" target=blank>https://www.w3schools.com/css/default.asp</a> for its examples</p>
+        </div>
+        <div id="CW3">
+            <p class="heading">CW3:</p>
+            <p>Where did I use event handlers:</p><br>
+            <p>Setup in Javascript: </p>
+            <p>index.html line 181 (for detecting when does the video finishes playing)</p><br>
+            <p>Setup in HTML: </p> 
+            <p>index.html lines 157, 168 (used onclick, to detect which thumbnail is clicked, so as to change the current playing video to the clicked one)</p>
+            <p>nowshowing.html line 173 (used onchange, to detect which option is chosen and show the corresponding movies showing in that cinema)</p>
+            <p>ticket.html lines 173, 174, 175 (used onclick, to detect which seat is pressed, then do operations like changing the background color of the seat and set the pointer event to none)</p>
+        </div> -->
+        <div id="general-box">
+        </div>
+    </div>
+    <script>
+        function getBoxIndex(getId, getNumOfSrc, getType){
+            var boxIndex = getId;
+            var numOfSrc = getNumOfSrc;
+            // alert(boxIndex + numOfSrc);
+            // if(document.getElementById("prev" + boxIndex).clicked == true){
+                // document.getElementById("website" + boxIndex).src=websites[boxIndex].imgSrc[0].src; 
+            // }
+
+            var link = document.getElementById("website" + boxIndex).src;
+            var splitLink = link.split('portfolio');
+            var currentLink = ".." + splitLink[1];
+
+            for(let c=0; c<websites[boxIndex].imgSrc.length; c++){
+                if(currentLink==websites[boxIndex].imgSrc[c].src){
+                    var storeIndex = c;
+                    var displayIndex = storeIndex + 1;
+                }
+            }
+
+            if(getType == "prev" && storeIndex > 0){
+                document.getElementById("website" + boxIndex).src=websites[boxIndex].imgSrc[storeIndex - 1].src;
+                document.getElementById("count" + boxIndex).textContent = (displayIndex - 1) + " of " + websites[boxIndex].imgSrc.length;
+            }
+
+            if(getType == "next" && storeIndex < websites[boxIndex].imgSrc.length - 1){
+                document.getElementById("website" + boxIndex).src=websites[boxIndex].imgSrc[storeIndex + 1].src;
+                document.getElementById("count" + boxIndex).textContent = (displayIndex + 1) + " of " + websites[boxIndex].imgSrc.length;
+            }
+
+            // var displayIndex = storeIndex + 1;
+            // document.getElementById("count" + boxIndex).textContent = displayIndex + " of " + websites[boxIndex].imgSrc.length;
+
+
+            // alert(displayIndex);
+        }
+
+        // function setImg(boxIndex, buttonId, display){
+        //     alert(getBoxIndex);
+        //     if(display > 0){
+        //         document.getElementById("website" + boxIndex).src=websites[0].imgSrc[display-1].src; 
+        //         // alert(websites[0].imgSrc[display-1].src);
+        //     }
+        // }
+
+        function append_to_div(div_name, data){
+            document.getElementById(div_name).innerHTML += data;
+        }
+
+        function addContent(getImgSrc1, getDescription, getPdfSrc, getIndex, getNumSrc){
+            append_to_div("general-box",
+            // "<div class='box' id='" + getIndex + "'onclick='getBoxIndex(this.id, " + getNumSrc + ", 'box')'>" + "<div class='left-box'>" + "<img src='" + getImgSrc1 + "' alt='" + getDescription + "' id='website" + getIndex + "'></img>" + 
+            // "<div class='prev-next'>" + "<span id='prev" + getIndex + "'onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", 'prev')'>&#10094;</span>" + 
+            "<div class='box' id='" + getIndex + "'>" + "<div class='left-box'>" + "<img src='" + getImgSrc1 + "' alt='" + getDescription + "' id='website" + getIndex + "'></img>" + 
+            "<div class='prev-next'>" + "<span class='prev' id='prev" + getIndex + "' onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", this.className)'>&#10094;</span>" + 
+            "<span id='count" + getIndex + "'>1 of " + getNumSrc + "</span>" + 
+            "<span class='next' id='next" + getIndex + "' onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", this.className)'>&#10095;</span>" + "</div>" + "</div>" +
+            "<div class='right-box'>" + 
+            "<div class='details'>" + "<p>" + getDescription + "</p>" + "</div>" +
+            // "<div class='pdf'><a href='" + getPdfSrc + "' target='_blank'>Link to Documentation</a></div>" +
+            "</div>" + "</div>");
+        }
+
+        function generateAppsBlock(){
+            for (let i=0; i<websites.length; i++){
+                // var setImgSrc1 = websites[i].imgSrc1;
+                // var setImgSrc2 = websites[i].imgSrc2;
+                // var setName = websites[i].name;
+                var setDescription = websites[i].description;
+                var setPdfSrc = websites[i].pdfSrc;
+                var index = i;
+                for(let j=0; j<websites[i].imgSrc.length; j++){
+                    var numSrc = websites[i].imgSrc.length;
+                    var setImgSrc1 = websites[i].imgSrc[0].src;
+                }
+                addContent(setImgSrc1, setDescription, setPdfSrc, index, numSrc);
+            }
+        }
+
+        generateAppsBlock();
+    </script>
+    <footer>
+        <div class="footer">
+            <div id="email">
+                <img src="../images/logo/email.svg" alt="email-icon">
+                <p>vikkichancl@gmail.com</p>
+            </div>
+            <div id="location">
+                <img src="../images/logo/location.svg" alt="location-icon">
+                <p>Hong Kong</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

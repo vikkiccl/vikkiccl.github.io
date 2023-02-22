@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikki's Portfolio - UI Work</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/ui.js"></script>
+    <script>
+        // let cinemas=getCinemas();
+        // let movies=getMovies();
+        let info = getUiText();
+
+        function init(){
+            // function getMovieName(movieArray, id) {
+            //     for (let m=0; m<movieArray.length; m++) {
+            //         if (movieArray[m].id == id){
+            //         return movieArray[m].name;
+            //         }
+            //     }
+            // }
+
+            // function getMovieThumbnail(movieArray, id) {
+            //     for (let m=0; m<movieArray.length; m++) {
+            //         if (movieArray[m].id == id) {
+            //         return movieArray[m].thumbnail;
+            //         }
+            //     }
+            // }
+
+            // var link = window.location.href;
+            
+            // var linkSplit = link.split("?").pop().split("&");
+
+            // var movieSplit = linkSplit[0].split("=").pop();
+            // var indexSplit = linkSplit[1].split("=").pop(); 
+
+            // for (let i=0; i<cinemas.length; i++) {
+            //     var branchName = cinemas[i].branchName;
+                
+            //     for (let j=0; j<cinemas[i].movies.length; j++) {
+            //         var movieId = cinemas[i].movies[j].id;
+            //         var movieName = getMovieName(movies, movieId);
+            //         var movieNameBranch = branchName + movieName;
+            //         var movieThumbnail = getMovieThumbnail(movies, movieId);
+
+            //         for (let k=0; k<cinemas[i].movies[j].shows.length; k++) {
+            //             var movieIndex = cinemas[i].movies[j].shows[k].index;
+            //             if (movieIndex == indexSplit){
+            //                 var movieDateTime = cinemas[i].movies[j].shows[k].datetime;
+            //                 var movieHouse = cinemas[i].movies[j].shows[k].house;
+            //                 var showBranch = branchName;
+            //             }
+            //         }
+            //     } 
+            // }
+            // //info needed: movieSplit, showBranch, movieDateTime, movieHouse
+
+            // function append_to_div(div_name, data){
+            //     document.getElementById(div_name).innerHTML += data;
+            // }
+
+            // append_to_div("movie-name", movieSplit);
+            // append_to_div("cinema-name", showBranch);
+            // append_to_div("date-time", movieDateTime);
+            // append_to_div("house", movieHouse);
+
+            // document.querySelector('input[name="cinemaName"]').value = showBranch;
+            // document.querySelector('input[name="movieName"]').value = movieSplit;
+            // document.querySelector('input[name="movieDateTime"]').value = movieDateTime;
+            // document.querySelector('input[name="movieHouse"]').value = movieHouse;
+        }
+        window.onload = init;
+    </script>
+    <style>
+        #current{
+            pointer-events: none;
+            text-decoration: underline;
+        }
+        /* .ticket-content{
+            margin-top: 300px;
+        }
+        table, caption, td{
+            border: solid;
+            border-collapse: collapse;
+        }
+        table{
+            width: 98%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        tr{
+            height: 50px;
+        }
+        .A, .B, .C{
+            transition: background-color 0.15s linear;
+        }
+        .A:hover{
+            background-color: rgb(217, 255, 180);
+        }
+        .B:hover{
+            background-color: rgb(217, 255, 180);
+        }
+        .C:hover{
+            background-color: rgb(217, 255, 180);
+        }
+        h3{
+            text-align: center;
+        }
+        #floorplan{
+            text-align: center;
+        } */
+        /* input[type="submit"]{
+            padding: 10px;
+            margin-top: 10px;
+            background-color: rgb(81, 116, 140);
+            color: white;
+            display: block;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.15s linear;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(115, 172, 191);
+        }
+        #booked{
+            margin-left: 10px;
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 18px;
+        }
+        #booked > input{
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 18px;
+        }
+        #booked > p{
+            font-weight: 600;
+        } */
+        .content{
+            margin: 200px 50px 0px 50px;
+            display: grid;
+            grid-template-rows: auto;
+        }
+        #email, #location{
+            display: grid;
+            grid-template-columns: 40px auto;
+            align-items: center;
+        }
+        #email > img, #location > img{
+            width: 20px;
+        }
+        #general-box{
+            margin: 0px 3%;
+        }
+        .row{
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+        .box{
+            margin: 0px 3% 6% 3%;
+            background-color: #B79F7B;
+            padding: 5% 5% 0px 5%;
+            text-align: center;
+        }
+        .ui-img{
+            width: 500px;
+            height: 250px;
+            /* border: 1px solid black; */
+        }
+    </style>
+</head>
+<body>
+    <div class="head-nav">
+        <header>
+            <div class="head">
+                <img src="../images/logo/green.svg" alt="logo: filmreel">
+                <h1>Vikki's Portfolio</h1>
+            </div>
+        </header>
+        <nav>
+            <div class="nav">
+                <div><a href="index.html">HOME</a></div>
+                <div><a href="uxwork.html">UX WORK</a></div>
+                <div><a id="current" href="uiwork.html">UI WORK</a></div>
+                <div><a href="apps.html">APPS</a></div>
+                <div><a href="websites.html">WEBSITES</a></div>
+                <div><a href="others.html">OTHERS</a></div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <!-- <div id="info">
+            <h3 id="movie-name">Movie: </h3>
+            <h3 id="cinema-name">Cinema: </h3>
+            <h3 id="date-time"></h3>                
+            <h3 id="house">House </h3>
+        </div>
+        <div id="floorplan">
+            <table>
+                <caption>SCREEN</caption>
+                <tr><td>A</td><td class="A" onclick="changeSeatColor(this, 'A1 ')">1</td><td class="A" onclick="changeSeatColor(this, 'A2 ')">2</td><td class="A" onclick="changeSeatColor(this, 'A3 ')">3</td><td class="A" onclick="changeSeatColor(this, 'A4 ')">4</td><td>A</td></tr>
+                <tr><td>B</td><td class="B" onclick="changeSeatColor(this, 'B1 ')">1</td><td class="B" onclick="changeSeatColor(this, 'B2 ')">2</td><td class="B" onclick="changeSeatColor(this, 'B3 ')">3</td><td class="B" onclick="changeSeatColor(this, 'B4 ')">4</td><td>B</td></tr>
+                <tr><td>C</td><td class="C" onclick="changeSeatColor(this, 'C1 ')">1</td><td class="C" onclick="changeSeatColor(this, 'C2 ')">2</td><td class="C" onclick="changeSeatColor(this, 'C3 ')">3</td><td class="C" onclick="changeSeatColor(this, 'C4 ')">4</td><td>C</td></tr>              
+            </table>
+        </div>
+        <form id="booked" action="print.html">
+            <p>Seat booked:</p>
+            <input type="hidden" name="cinemaName">
+            <input type="hidden" name="movieName">
+            <input type="hidden" name="movieDateTime">
+            <input type="hidden" name="movieHouse">
+            <input type="text" name="seat">         
+            <input type="submit" value="Confirm">
+        </form> -->
+        <div id="general-box">
+
+        </div>
+    </div>
+    <script>
+        // function changeSeatColor(i, seat){
+        //     i.style.backgroundColor = "#d9ffb4";
+        //     var selectElement = document.querySelector('input[name="seat"]');
+        //     selectElement.value += seat;
+        //     i.style.pointerEvents = "none";
+        // }
+        function append_to_div(div_name, data){
+            document.getElementById(div_name).innerHTML += data;
+        }
+
+        function addDiv(getIndex){
+            // var genDiv = 0;
+            // if(getIndex != genDiv){
+            //     append_to_div("general-box",
+            //     "<div class='row' id='row" + getIndex + "'>" + "</div>");
+            // }
+            // genDiv = getIndex;
+
+            for(let s=0; s<=getIndex; s++){
+                append_to_div("general-box",
+                "<div class='row' id='row" + s + "'>" + "</div>");
+            }
+        }
+
+        function addContent(getSrc, getDescription, getRow){
+            append_to_div("row" + getRow,
+            "<div class='box'>" + 
+            "<img src='" + getSrc + "' alt='" + getDescription + "' class='ui-img'>" +
+            "<p>" + getDescription + "</p>" +
+            "</div>");
+        }
+
+        function setWidth(){
+            var elementBoxWidth = document.getElementsByClassName("box");
+            var elementsUiImg = document.getElementsByClassName("ui-img");
+            // var elementsR = document.getElementsByClassName("right-box");
+            for (let j=0; j<info.length; j++){
+                // var left = color[j].hexL;
+                // var right = color[j].hexR;
+
+                // elementsUiImg[j].style.width = elementBoxWidth[j].offsetWidth;
+                elementsUiImg[j].style.width = 100;
+
+                // elementsR[j].style.backgroundColor=right;
+            }
+        }
+
+        function generateUiBlock(){
+            var numberOfDiv = info.length - 1;
+            var setIndex = info[numberOfDiv].number;
+            setIndex = Math.trunc(setIndex/2);
+            addDiv(setIndex);
+
+            for (let i=0; i<info.length; i++){
+                var setSrc = info[i].src;
+                var setDescription = info[i].description;
+                var setRow = info[i].number;
+                setRow = Math.trunc(setRow/2);
+                // var setId = i+1;
+                // var left = color[i].hexL;
+                // var right = color[i].hexR;
+                addContent(setSrc, setDescription, setRow);
+                // changeColor(left, right);
+            }
+            // for (let p=0; p<color.length; p++){
+            //     var setleftr = color[p].redl;
+            //     var setleftg = color[p].greenl;
+            //     var setleftb = color[p].bluel;
+            //     var setrightr = color[p].redr;
+            //     var setrightg = color[p].greenr;
+            //     var setrightb = color[p].bluer;
+            // }
+        }
+
+        generateUiBlock();
+    </script>
+    <footer>
+        <div class="footer">
+            <div id="email">
+                <img src="../images/logo/email.svg" alt="email-icon">
+                <p>vikkichancl@gmail.com</p>
+            </div>
+            <div id="location">
+                <img src="../images/logo/location.svg" alt="location-icon">
+                <p>Hong Kong</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
