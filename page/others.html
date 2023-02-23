@@ -15,74 +15,8 @@
     <script src="../js/others.js"></script>
     <script>
         let others=getOthers();
-        // let movies=getMovies();
-        function init(){
-            // var link = window.location.href;
-            
-            // var linkSplit = link.split("?").pop().split("&");
-
-            // var cinemaSplit = linkSplit[0].split("=").pop().split("+");
-            // var movieSplit = linkSplit[1].split("=").pop(); //movie name
-            // var movieDTSplit = linkSplit[2].split("=").pop().split("%2C");
-            // var movieHouseSplit = linkSplit[3].split("=").pop(); //movie house
-            // var seatSplit = linkSplit[4].split("=").pop().split("+"); //array of seats
-            // seatSplit.pop();
-
-            // var cinema = cinemaSplit.join(" "); //cinema name
-
-            // var DT1 = movieDTSplit.join(",");
-            // var DT2 = DT1.split("+"); //9,Nov,,Mon,-,2%3A00pm
-            // var DT3 = DT2.pop().split("%3A");
-            // var DT4 = DT3.join(":");
-            // var movieDT = DT2[0] + " " + DT2[1] + " " + DT2[2] + " " + DT2[3] + " " + DT4; //9 Nov, Mon - 2:00pm //Date Time
-
-            // function append_to_div(div_name, data){
-            //     document.getElementById(div_name).innerHTML += data;
-            // }
-
-            // for(let i=0; i<seatSplit.length; i++){
-            //     append_to_div("ticket", "<div class='ticket-info'>" + "<form>" + 
-            //     "<label>Cinema: </label>" + "<input type='text' name='cinema' value='" + cinema + "'>" + "<br>" +
-            //     "<label>Movie: </label>" + "<input type='text' name='movie' value='" + movieSplit + "'>" + "<br>" +
-            //     "<label>Date Time: </label>" + "<input type='text' name='datetime' value='" + movieDT + "'>" + "<br>" +
-            //     "<label>House No.: </label>" + "<input type='text' name='house' value='" + movieHouseSplit + "'>" + "<br>" +
-            //     "<label>Seat: </label>" + "<input type='text' name='seat' value='" + seatSplit[i] + "'>" +
-            //     "</form>" + "</div>");
-            // }
-        }
-        window.onload = init;
     </script>
     <style>
-        /* .ticket-info{
-            border: 1px black solid;
-            padding: 10px;
-            margin: 20px 10px;
-            background-color: rgb(250, 255, 255);
-            width: 500px;
-            transition: box-shadow 0.25s linear;
-        }
-        .ticket-info:hover{
-            transform: scale(1.05, 1.05);
-            box-shadow: 5px 5px rgb(211, 211, 211);
-        }
-  
-        form > input{
-            width: 80%;
-            background: transparent;
-            border: none;
-            font-size: 14px;
-        }
-        @media print{
-            .head-nav, footer{
-                display: none;
-            }
-            .ticket-info{
-                page-break-after: always;
-            }
-            .content{
-                margin:0px 10px 0px 10px;
-            }
-        } */
         #current{
             pointer-events: none;
             text-decoration: underline;
@@ -114,7 +48,6 @@
             display: grid;
             align-items: center;
             justify-items: center;
-            /* background-color: rgb(255, 186, 83); */
         }
         .left-box > img{
             width: 80%;
@@ -133,7 +66,6 @@
             text-decoration: none;
         }
         .details{
-            /* background-color: white; */
             margin: 4%;
         }
         .pdf{
@@ -180,7 +112,7 @@
             var boxIndex = getId;
             var numOfSrc = getNumOfSrc;
             var link = document.getElementById("website" + boxIndex).src;
-            var splitLink = link.split('portfolio');
+            var splitLink = link.split('vikkiccl.github.io');
             var currentLink = ".." + splitLink[1];
 
             for(let c=0; c<others[boxIndex].imgSrc.length; c++){
@@ -205,12 +137,12 @@
             document.getElementById(div_name).innerHTML += data;
         }
 
-        function addImageContent(getImgSrc1, getDescription, getPdfSrc, getIndex, getNumSrc){
+        function addImageContent(getImgSrc1, getDescription, getPdfSrc, getIndex, getNumSrc, getPrev, getNext){
             append_to_div("general-box",
             "<div class='box' id='" + getIndex + "'>" + "<div class='left-box'>" + "<img src='" + getImgSrc1 + "' alt='" + getDescription + "' id='website" + getIndex + "'></img>" + 
-            "<div class='prev-next'>" + "<span class='prev' id='prev" + getIndex + "' onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", this.className)'>&#10094;</span>" + 
+            "<div class='prev-next'>" + "<span class='prev' id='prev" + getIndex + "' onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", " + getPrev + ")'>&#10094;</span>" + 
             "<span id='count" + getIndex + "'>1 of " + getNumSrc + "</span>" + 
-            "<span class='next' id='next" + getIndex + "' onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", this.className)'>&#10095;</span>" + "</div>" + "</div>" +
+            "<span class='next' id='next" + getIndex + "' onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", " + getNext + ")'>&#10095;</span>" + "</div>" + "</div>" +
             "<div class='right-box'>" + 
             "<div class='details'>" + "<p>" + getDescription + "</p>" + "</div>" +
             "<div class='pdf'><a href='" + getPdfSrc + "' target='_blank'>Link to Documentation</a></div>" +
@@ -224,7 +156,6 @@
             "<div class='details'>" + "<p>" + getDescription + "</p>" + "</div>" +
             "<div class='pdf'><a href='" + getPdfSrc + "' target='_blank'>Link to Documentation</a></div>" +
             "</div>" + "</div>");
-            // alert(getPdfSrc);
         }
 
         function addVideoContentNoPdf(getVideoSrc, getName, getDescription){
@@ -232,9 +163,7 @@
             "<div class='box'>" + "<div class='left-box'>" + "<iframe src='" + getVideoSrc + "' title='" + getName + "' class='withoutPdf' allowfullscreen></iframe>" + "</div>" +
             "<div class='right-box'>" + "<div class='subheading'>" + "<p>" + getName + "</p>" + "</div>" + 
             "<div class='details'>" + "<p>" + getDescription + "</p>" + "</div>" +
-            // "<div class='pdf'><a href='" + getPdfSrc + "' target='_blank'>Link to Documentation</a></div>" +
             "</div>" + "</div>");
-            // alert(getPdfSrc);
         }
 
         function generateAppsBlock(){
@@ -247,22 +176,21 @@
                         var numSrc = others[i].imgSrc.length;
                         var setImgSrc1 = others[i].imgSrc[0].src;
                     }
-                    addImageContent(setImgSrc1, setDescription, setPdfSrc, index, numSrc);
+                    var setPrev = '"prev"';
+                    var setNext = '"next"';
+                    addImageContent(setImgSrc1, setDescription, setPdfSrc, index, numSrc, setPrev, setNext);
                 }
                 if(others[i].type == "video"){
                     var setVideoSrc = others[i].videoSrc;
                     var setName = others[i].name;
                     var setDescription = others[i].description;
                     var setPdfSrc = others[i].pdfSrc;
-                    // alert(setPdfSrc);
                     addVideoContent(setVideoSrc, setName, setDescription, setPdfSrc);
                 }
                 if(others[i].type == "video2"){
                     var setVideoSrc = others[i].videoSrc;
                     var setName = others[i].name;
                     var setDescription = others[i].description;
-                    // var setPdfSrc = others[i].pdfSrc;
-                    // alert(setPdfSrc);
                     addVideoContentNoPdf(setVideoSrc, setName, setDescription);
                 }
             }
