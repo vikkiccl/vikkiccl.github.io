@@ -53,8 +53,6 @@
             grid-template-rows: 50px;
             text-align: center;
             margin: 80px auto 50px auto;
-            /* margin-top: 80px;
-            margin-bottom: 50px; */
         }
         .button a{
             text-decoration: none;
@@ -63,53 +61,36 @@
             padding: 4% 0px;
         }
         .button-left{
-            /* margin: 0px 10% 0px 20%; */
             background-color: rgb(48, 58, 92);
             width: 150px;
             margin-right: 30px;
         }
         .button-right{
-            /* margin: 0px 0% 0px 10%; */
             background-color: rgb(48, 58, 92);
             width: 150px;
             margin-left: 30px;
         }
         .nowshowing{
             display: grid;
-            /* grid-template-rows: 10% 25% 25% 25%; */
-            /* border: 1px black solid; */
-            /* padding: 0px 0px 20px 0px; */
             margin: 0px 5% 5% 15%;
             padding: 2%;
             transition: background-color 0.25s linear;
             background: #D9D9D9;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
-            /* background-color: rgb(224, 247, 247); */
         }
         .upcoming{
             display: grid;
-            /* grid-template-rows: 10% 25% 25% 25%; */
-            /* border: 1px black solid; */
             margin: 0px 15% 5% 5%;
             padding: 2%;
             transition: background-color 0.25s linear;
             background: #D9D9D9;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
-            /* background-color: rgb(224, 247, 247); */
         }
         .upcoming-nowshowing{
             display: grid;
-            /* padding: 5%; */
             grid-template-columns: 50% 50%;
             margin: 0px 10px 20px 10px;
-            /* border: 1px black solid; */
         }
-        /* .upcoming:hover{
-            background-color: rgb(250, 255, 255);
-        }
-        .nowshowing:hover{
-            background-color: rgb(250, 255, 255);
-        } */
         .movie{
             display: grid;
             grid-template-columns: 30% 70%;
@@ -139,9 +120,6 @@
             grid-template-columns: 40px auto;
             align-items: center;
         }
-        /* footer{
-            clear: both;
-        } */
         #email > img, #location > img{
             width: 20px;
         }
@@ -167,99 +145,39 @@
         </nav>
     </div>
     <div class="content">
-    <!-- <div id="auto">
-        <video controls autoplay id="myVideo">
-            <source>
-        </video>
-    </div> -->
-    <div class="upcoming-nowshowing">
-        <div class="nowshowing">
-            <div class="subheading"><p>My Designer Work</p></div>
-            <div class="description"><p>How I apply design thinking to design the most suitable interface for the best journey in usage.</p></div>
-            <div class="button">
-                <a href="uxwork.html" class="button-left">UX WORK</a>
-                <a href="uiwork.html" class="button-right">UI WORK</a>
+        <div class="upcoming-nowshowing">
+            <div class="nowshowing">
+                <div class="subheading"><p>My Designer Work</p></div>
+                <div class="description"><p>How I apply design thinking to design the most suitable interface for the best journey in usage.</p></div>
+                <div class="button">
+                    <a href="uxwork.html" class="button-left">UX WORK</a>
+                    <a href="uiwork.html" class="button-right">UI WORK</a>
+                </div>
             </div>
-            <!-- <dl class="nowshowing-list">  
-            </dl> -->
+            <div class="upcoming">
+                <div class="subheading"><p>My Tech Work</p></div>
+                <div class="description"><p>From thoughts to action, how did I build from zero to hundred ranging from apps to websites.</p></div>
+                <div class="button">
+                    <a href="apps.html" class="button-left">APPS</a>
+                    <a href="websites.html" class="button-right">WEBSITES</a>
+                </div> 
+            </div>
         </div>
-        <div class="upcoming">
-            <div class="subheading"><p>My Tech Work</p></div>
-            <div class="description"><p>From thoughts to action, how did I build from zero to hundred ranging from apps to websites.</p></div>
-            <div class="button">
-                <a href="apps.html" class="button-left">APPS</a>
-                <a href="websites.html" class="button-right">WEBSITES</a>
-            </div> 
-            <!-- <dl class="upcoming-list">
-            </dl> -->
-        </div>
-    </div>
     </div>
     <script>
-        // function getMovieName(movieArray, id) {
-        //     for (let i=0; i<movieArray.length; i++) {
-        //         if (movieArray[i].id == id) 
-        //         return movieArray[i].name;
-        //     }
-        //     return undefined;
-        // }
-
         function append_to_div(div_name, data){
             document.getElementsByClassName(div_name)[0].innerHTML += data;
         }
-        // for (let j=0; j<movies.length; j++){
-        //     var moviethumbnail = movies[j].thumbnail;
-        //     var moviename = movies[j].name;
-        //     var moviecast = movies[j].cast;
-        //     var moviedirector = movies[j].director;
-        //     var movieduration = movies[j].duration;
-
-            if(movies[j].type == "now"){
-                append_to_div('nowshowing-list', 
-                "<dt>" + "</dt>" + "<dd class='movie'>" + "<div class='movie-thumbnail'>" + "<img onclick='playVideo(this)' src='" + moviethumbnail + "' alt= 'Movie: " + moviename + "'>" + "</div>" + 
-                "<div class='movie-details'>" + 
-                "<div class='movie-name'>" + moviename + "</div>" +  
-                "<div>" + "<span>" + "Cast: " + "</span>" + moviecast + "</div>" + 
-                "<div>" + "<span>" + "Director: " + "</span>" + moviedirector + "</div>" + 
-                "<div>" + "<span>" + "Duration: " + "</span>" + movieduration + " mins" + "</div>" +  
-                "</div>" + "</dd>" );
-            }
-
-        //     if(movies[j].type == "upcoming"){
-        //         append_to_div('upcoming-list', 
-        //         "<dt>" + "</dt>" + "<dd class='movie'>" + "<div class='movie-thumbnail'>" + "<img onclick='playVideo(this)' src='" + moviethumbnail + "' alt= 'Movie: " + moviename + "' class='movieThumbnail'>" + "</div>" + 
-        //         "<div class='movie-details'>" + 
-        //         "<div class='movie-name'>" + moviename + "</div>" +  
-        //         "<div>" + "<span>" + "Cast: " + "</span>" + moviecast + "</div>" + 
-        //         "<div>" + "<span>" + "Director: " + "</span>" + moviedirector + "</div>" + 
-        //         "<div>" + "<span>" + "Duration: " + "</span>" + movieduration + " mins" + "</div>" +  
-        //         "</div>" + "</dd>" );
-        //     }
-        // }
-
-        // var current = 0;
-        // var playVid = document.getElementById("myVideo");
-        // playVid.src = movies[current].src;
-        // playVid.addEventListener("ended", function(){setTimeout(nextVideo, 2000)});
-
-        // function nextVideo(){
-        //     current += 1;
-        //     if(current == movies.length){
-        //         current = 0;
-        //         playVid.src = movies[current].src;
-        //     }
-        //     playVid.src = movies[current].src; 
-        // }
-
-        // function playVideo(img){
-        //     var att = img.getAttribute("src");
-        //     for(var m=0; m<movies.length; m++){
-        //         if(att == movies[m].thumbnail){
-        //             current = m;
-        //             playVid.src = movies[current].src;
-        //         }
-        //     } 
-        // }
+        if(movies[j].type == "now"){
+            append_to_div('nowshowing-list', 
+            "<dt>" + "</dt>" + "<dd class='movie'>" + "<div class='movie-thumbnail'>" + "<img onclick='playVideo(this)' src='" + moviethumbnail + "' alt= 'Movie: " + moviename + "'>" + "</div>" + 
+            "<div class='movie-details'>" + 
+            "<div class='movie-name'>" + moviename + "</div>" +  
+            "<div>" + "<span>" + "Cast: " + "</span>" + moviecast + "</div>" + 
+            "<div>" + "<span>" + "Director: " + "</span>" + moviedirector + "</div>" + 
+            "<div>" + "<span>" + "Duration: " + "</span>" + movieduration + " mins" + "</div>" +  
+            "</div>" + "</dd>" );
+        }
     </script>
     <footer>
         <div class="footer">
