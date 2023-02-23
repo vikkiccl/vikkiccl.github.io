@@ -15,60 +15,6 @@
         let websites = getWebsites();
     </script>
     <style>
-        /* .heading{
-            font-size: 18px;
-            text-decoration: underline;
-            font-weight: 600;
-        } */
-        /* #CW2 > img{
-            display: block;
-            transition: box-shadow 0.25s linear;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-        }
-        #CW2 > img:hover{
-            box-shadow: 5px 5px rgb(211, 211, 211);
-        }
-        table, th, td{
-            border: 2px solid;
-            border-collapse: collapse;
-        }
-        table{
-            margin-top: 30px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 80%;
-            background-color: rgba(255, 224, 0, 0.3);
-        }
-        th, td{
-            padding: 10px;
-        }
-        th{
-            text-align: left;
-        }
-        caption{
-            font-weight: 600;
-        }
-        .amount{
-            text-align: center;
-        }
-        #CW1, #CW2, #CW3{
-            margin: 10px;
-        }
-        #CW2{
-            margin-top: 50px;
-        }
-        #style:hover, #groups:hover, #home:hover, #nowshowing:hover, #ticket:hover, #print:hover, #design:hover{
-            background-color: rgb(240, 255, 240);
-            transition: background-color 0.15s linear;
-        }
-        #CW2 > p > a{
-            color: blue;
-        }
-        #CW2 > p > a:hover{
-            color: rgb(0, 140, 255);
-        } */
         #current{
             pointer-events: none;
             text-decoration: underline;
@@ -100,7 +46,6 @@
             display: grid;
             align-items: center;
             justify-items: center;
-            /* background-color: rgb(255, 186, 83); */
         }
         .left-box > img{
             width: 80%;
@@ -119,7 +64,6 @@
             text-decoration: none;
         }
         .details{
-            /* background-color: white; */
             margin: 4%;
         }
         .pdf{
@@ -161,43 +105,6 @@
         </nav>
     </div>
     <div class="content">
-        <!-- <div id="CW1">
-            <p class="heading">CW1:</p>
-            <p>Index page: The now showing and up coming movies are ordered in an ordered list, as I think that it is clearer for users to distinguish one movie from another with numbers next to the movie.</p>
-            <p>Now showing page: A drop-down list is used to show the cinema and timeslot and hide other possible options in a clear design. The thumbnail, name of the movie and timeslots are wrapped in a form due to the information of these three elements will change at the same time if another movie is selected. The address and image of the map are located in the same paragraph with an id so both of them can be called with the id.</p>
-            <p>Ticket page: The seating plan of the cinema is made by a table, with a neat look and suitable for changing the elements to be clickable in later stage.</p>
-            <p>Print page: All information of a movie are contained in a form, with each item as a label.</p>
-        </div>
-        <div id="CW2">
-            <p class="heading">CW2:</p>
-            <img src="../images/others/cw2layout.png" alt="others: layout">
-            <table>
-                <caption>Style sheets used and their purposes</caption>
-                <tr><td></td><th>Amount</th><th>Purpose</th></tr>
-                <tr id="style"><th>Style Sheet</th><td class="amount">1</td><td>For the header, navigation bar and footer that are located in every page.</td></tr>
-                <tr id="groups"><th>Groups of Styles</th><td class="amount">5</td><td>For the content inside each page, where each page have their own groups of styles.</td></tr>
-            </table>
-            <table>
-                <caption>CSS3 features used</caption>
-                <tr><td></td><th>Style Sheet</th><th>Line Numbers</th><th>Features</th></tr>
-                <tr id="home"><th>Home</th><td>Embedded into index.html</td><td>27, 32, 48, 55</td><td>Box Shadow, Transition</td></tr>
-                <tr id="nowshowing"><th>Now Showing</th><td>Embedded into nowshowing.html</td><td>61, 62</td><td>Border Radius, Transition</td></tr>
-                <tr id="ticket"><th>Ticket</th><td>Embedded into ticket.html</td><td>33, 52, 53</td><td>Border Radius, Transition</td></tr>
-                <tr id="print"><th>Print</th><td>Embedded into print.html</td><td>20, 23, 24</td><td>Scale Up, Box Shadow, Transition</td></tr>
-                <tr id="design"><th>Design</th><td>Embedded into design.html</td><td>21, 27, 60</td><td>Box Shadow, Transition</td></tr>
-            </table>
-            <p>Acknowledgement: <a href="https://www.w3schools.com/css/default.asp" target=blank>https://www.w3schools.com/css/default.asp</a> for its examples</p>
-        </div>
-        <div id="CW3">
-            <p class="heading">CW3:</p>
-            <p>Where did I use event handlers:</p><br>
-            <p>Setup in Javascript: </p>
-            <p>index.html line 181 (for detecting when does the video finishes playing)</p><br>
-            <p>Setup in HTML: </p> 
-            <p>index.html lines 157, 168 (used onclick, to detect which thumbnail is clicked, so as to change the current playing video to the clicked one)</p>
-            <p>nowshowing.html line 173 (used onchange, to detect which option is chosen and show the corresponding movies showing in that cinema)</p>
-            <p>ticket.html lines 173, 174, 175 (used onclick, to detect which seat is pressed, then do operations like changing the background color of the seat and set the pointer event to none)</p>
-        </div> -->
         <div id="general-box">
         </div>
     </div>
@@ -205,10 +112,6 @@
         function getBoxIndex(getId, getNumOfSrc, getType){
             var boxIndex = getId;
             var numOfSrc = getNumOfSrc;
-            // alert(boxIndex + numOfSrc);
-            // if(document.getElementById("prev" + boxIndex).clicked == true){
-                // document.getElementById("website" + boxIndex).src=websites[boxIndex].imgSrc[0].src; 
-            // }
 
             var link = document.getElementById("website" + boxIndex).src;
             var splitLink = link.split('vikkiccl.github.io');
@@ -230,22 +133,7 @@
                 document.getElementById("website" + boxIndex).src=websites[boxIndex].imgSrc[storeIndex + 1].src;
                 document.getElementById("count" + boxIndex).textContent = (displayIndex + 1) + " of " + websites[boxIndex].imgSrc.length;
             }
-
-            // var displayIndex = storeIndex + 1;
-            // document.getElementById("count" + boxIndex).textContent = displayIndex + " of " + websites[boxIndex].imgSrc.length;
-
-
-            // alert(displayIndex);
-            alert(link);
         }
-
-        // function setImg(boxIndex, buttonId, display){
-        //     alert(getBoxIndex);
-        //     if(display > 0){
-        //         document.getElementById("website" + boxIndex).src=websites[0].imgSrc[display-1].src; 
-        //         // alert(websites[0].imgSrc[display-1].src);
-        //     }
-        // }
 
         function append_to_div(div_name, data){
             document.getElementById(div_name).innerHTML += data;
@@ -253,23 +141,17 @@
 
         function addContent(getImgSrc1, getDescription, getPdfSrc, getIndex, getNumSrc, getPrev, getNext){
             append_to_div("general-box",
-            // "<div class='box' id='" + getIndex + "'onclick='getBoxIndex(this.id, " + getNumSrc + ", 'box')'>" + "<div class='left-box'>" + "<img src='" + getImgSrc1 + "' alt='" + getDescription + "' id='website" + getIndex + "'></img>" + 
-            // "<div class='prev-next'>" + "<span id='prev" + getIndex + "'onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", 'prev')'>&#10094;</span>" + 
             "<div class='box' id='" + getIndex + "'>" + "<div class='left-box'>" + "<img src='" + getImgSrc1 + "' alt='" + getDescription + "' id='website" + getIndex + "'></img>" + 
             "<div class='prev-next'>" + "<span class='prev' id='prev" + getIndex + "' onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", " + getPrev + ")'>&#10094;</span>" + 
             "<span id='count" + getIndex + "'>1 of " + getNumSrc + "</span>" + 
             "<span class='next' id='next" + getIndex + "' onclick='getBoxIndex(" + getIndex + ", " + getNumSrc + ", " + getNext + ")'>&#10095;</span>" + "</div>" + "</div>" +
             "<div class='right-box'>" + 
             "<div class='details'>" + "<p>" + getDescription + "</p>" + "</div>" +
-            // "<div class='pdf'><a href='" + getPdfSrc + "' target='_blank'>Link to Documentation</a></div>" +
             "</div>" + "</div>");
         }
 
         function generateAppsBlock(){
             for (let i=0; i<websites.length; i++){
-                // var setImgSrc1 = websites[i].imgSrc1;
-                // var setImgSrc2 = websites[i].imgSrc2;
-                // var setName = websites[i].name;
                 var setDescription = websites[i].description;
                 var setPdfSrc = websites[i].pdfSrc;
                 var index = i;
